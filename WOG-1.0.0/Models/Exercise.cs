@@ -8,7 +8,7 @@ namespace WOG_1._0._0.Models
 
         public Equipment Equipment { get; set; }
 
-        public List<MuscleGroup> MuscleGroups { get; set; } = new List<Enums.MuscleGroup>();
+        public List<MuscleGroup> MuscleGroups { get; set; } = new List<MuscleGroup>();
 
         public string? Notes { get; set; }
     }

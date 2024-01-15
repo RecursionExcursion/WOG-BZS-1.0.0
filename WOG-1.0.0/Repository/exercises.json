@@ -1,0 +1,83 @@
+[
+    //Body Weight
+    {
+        "name": "Push Up",
+        "equipment": "BODY_WEIGHT",
+        "muscleGroups": [
+            "CHEST",
+            "TRICEPS"
+        ],
+        "notes": null
+    },
+    {
+        "name": "Body Squats",
+        "equipment": "BODY_WEIGHT",
+        "muscleGroups": [
+            "LEGS"
+        ],
+        "notes": null
+    },
+    //Barbell
+    {
+        "name": "Bench Press",
+        "equipment": "BARBELL",
+        "muscleGroups": [
+            "CHEST",
+            "TRICEPS"
+        ],
+        "notes": null
+    },
+    {
+        "name": "Body Squats",
+        "equipment": "BODY_WEIGHT",
+        "muscleGroups": [
+            "LEGS"
+        ],
+        "notes": null
+    },
+    {
+        "name": "Body Squats",
+        "equipment": "BODY_WEIGHT",
+        "muscleGroups": [
+            "LEGS"
+        ],
+        "notes": null
+    },
+    {
+        "name": "Body Squats",
+        "equipment": "BODY_WEIGHT",
+        "muscleGroups": [
+            "LEGS"
+        ],
+        "notes": null
+    },
+    //Kettlebell
+    {
+        "name": "KB Swings",
+        "equipment": "KETTLEBELL",
+        "muscleGroups": [
+            "LEGS",
+            "CORE"
+        ],
+        "notes": null
+    },
+    {
+        "name": "KB Snatches",
+        "equipment": "KETTLEBELL",
+        "muscleGroups": [
+            "LEGS",
+            "CORE"
+        ],
+        "notes": null
+    },
+    //STRIAGHTBAR
+    {
+        "name": "Pull Ups",
+        "equipment": "STRAIGHT_BAR",
+        "muscleGroups": [
+            "BACK",
+            "BICEPS"
+        ],
+        "notes": null
+    }
+]

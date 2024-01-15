@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using WOG_1._0._0.Repository;
 using WOG_1._0._0.Service;
 
@@ -11,9 +12,15 @@ namespace WOG_1._0._0
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers()
+                            .AddJsonOptions(options =>
+                            {
+                                options.JsonSerializerOptions
+                                       .Converters.Add(new JsonStringEnumConverter());
+                            });
             builder.Services.AddScoped<WorkoutService>();
             builder.Services.AddScoped<WorkoutRepository>();
+
 
             var app = builder.Build();
 

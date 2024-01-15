@@ -1,26 +1,20 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using WOG_1._0._0.Models;
 using WOG_1._0._0.Service;
 
 namespace WOG_1._0._0.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class WorkoutController : ControllerBase
+    public class WorkoutController(WorkoutService service) : ControllerBase
     {
 
-        private WorkoutService service;
-
-        public WorkoutController(WorkoutService service)
-        {
-            this.service = service;
-        }
-
+        private readonly WorkoutService service = service;
 
         [HttpGet]
-        public string Get()
+        public Exercise GetExercises()
         {
-            return service.GetString();
+            return service.GetExerciseTest();
         }
     }
 }

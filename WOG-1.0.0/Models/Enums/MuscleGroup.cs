@@ -1,10 +1,19 @@
-﻿namespace WOG_1._0._0.Models.Enums
+﻿using System.Runtime.Serialization;
+
+namespace WOG_1._0._0.Models.Enums
 {
     public enum MuscleGroup
     {
-        CHEST,
-        BACK,
-        LEGS,
-        CORE
+        [EnumMember(Value = "CHEST")] CHEST,
+
+        [EnumMember(Value = "BACK")] BACK,
+
+        [EnumMember(Value = "LEGS")] LEGS,
+
+        [EnumMember(Value = "CORE")] CORE,
+
+        [EnumMember(Value = "TRICEPS")] TRICEPS,
+
+        [EnumMember(Value = "BICEPS")] BICEPS
     }
 }
