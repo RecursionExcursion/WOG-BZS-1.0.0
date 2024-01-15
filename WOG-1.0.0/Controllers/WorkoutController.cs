@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WOG_1._0._0.Service;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,6 +9,15 @@ namespace WOG_1._0._0.Controllers
     [ApiController]
     public class WorkoutController : ControllerBase
     {
+
+        private WorkoutService service;
+
+        public WorkoutController(WorkoutService service)
+        {
+            this.service = service ?? throw new ArgumentNullException(nameof(service));
+        }
+
+
         // GET: api/<ValuesController>
         [HttpGet]
         public IEnumerable<string> Get()
