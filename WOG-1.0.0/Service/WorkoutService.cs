@@ -1,6 +1,7 @@
 ﻿using WOG_1._0._0.Models;
 using WOG_1._0._0.Models.Enums;
 using WOG_1._0._0.Repository;
+using WOG_1._0._0.Service.DTO;
 
 namespace WOG_1._0._0.Service
 {
@@ -14,33 +15,25 @@ namespace WOG_1._0._0.Service
             return "Hello from service";
         }
 
-
-        public Exercise GetExerciseTest()
-        {
-            return new Exercise()
-            {
-                Name = "Push Up",
-                Equipment = Equipment.BODY_WEIGHT,
-                MuscleGroups = new List<MuscleGroup>()
-                {
-                    MuscleGroup.CHEST,
-                    MuscleGroup.TRICEPS
-                }
-            };
-        }
         public Workout GetWorkoutTest()
         {
             return new Workout();
         }
 
-        public List<MuscleGroup> GetMuscleGroups()
+        public List<Exercise> GetExercises()
         {
-            return null;
+            return repository.GetExercises();
         }
 
-        public List<MuscleGroup> GetEquipment()
+        public List<EnumTypesDTO> GetEquipment()
         {
-            return null;
+            return EquipmentHelper.GetEquipment();
+        }
+
+
+        public List<EnumTypesDTO> GetMuscleGroups()
+        {
+            return MuscleGroupHelper.GetMuscleGroups();
         }
 
     }

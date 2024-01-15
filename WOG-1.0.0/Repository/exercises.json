@@ -1,82 +1,94 @@
 [
-    //Body Weight
     {
         "name": "Push Up",
-        "equipment": "BODY_WEIGHT",
+        "equipment": 0,
         "muscleGroups": [
-            "CHEST",
-            "TRICEPS"
+            0,
+            4
         ],
         "notes": null
     },
     {
         "name": "Body Squats",
-        "equipment": "BODY_WEIGHT",
+        "equipment": 0,
         "muscleGroups": [
-            "LEGS"
+            3
         ],
         "notes": null
     },
-    //Barbell
+    {
+        "name": "Sit Ups",
+        "equipment": 0,
+        "muscleGroups": [
+            3
+        ],
+        "notes": null
+    },
+
+
     {
         "name": "Bench Press",
-        "equipment": "BARBELL",
+        "equipment": 1,
         "muscleGroups": [
-            "CHEST",
-            "TRICEPS"
+            0,
+            4
         ],
         "notes": null
     },
     {
-        "name": "Body Squats",
-        "equipment": "BODY_WEIGHT",
+        "name": "Squat",
+        "equipment": 1,
         "muscleGroups": [
-            "LEGS"
+            2
         ],
         "notes": null
     },
     {
-        "name": "Body Squats",
-        "equipment": "BODY_WEIGHT",
+        "name": "Rows",
+        "equipment": 1,
         "muscleGroups": [
-            "LEGS"
+            1,
+            5
         ],
         "notes": null
     },
     {
-        "name": "Body Squats",
-        "equipment": "BODY_WEIGHT",
+        "name": "JERK",
+        "equipment": 1,
         "muscleGroups": [
-            "LEGS"
+            2,
+            3,
+            0,
+            4
         ],
         "notes": null
     },
-    //Kettlebell
+
     {
         "name": "KB Swings",
-        "equipment": "KETTLEBELL",
+        "equipment": 2,
         "muscleGroups": [
-            "LEGS",
-            "CORE"
+            2,
+            3
         ],
         "notes": null
     },
     {
         "name": "KB Snatches",
-        "equipment": "KETTLEBELL",
+        "equipment": 2,
         "muscleGroups": [
-            "LEGS",
-            "CORE"
+            2,
+            3
         ],
         "notes": null
     },
-    //STRIAGHTBAR
+
     {
         "name": "Pull Ups",
-        "equipment": "STRAIGHT_BAR",
+        "equipment": 3,
         "muscleGroups": [
-            "BACK",
-            "BICEPS"
+            1,
+            5
         ],
         "notes": null
     }
