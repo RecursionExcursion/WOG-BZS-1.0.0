@@ -12,6 +12,9 @@ namespace WOG_1._0._0.Service
             this.repository = repository;
         }
 
-
+        internal string GetString()
+        {
+            return "Hello from service";
+        }
     }
 }
