@@ -23,19 +23,4 @@ namespace WOG_1._0._0.Models.Enums
         [EnumMember(Value = "BICEPS")] 
         BICEPS
     }
-    public static class MuscleGroupHelper
-    {
-        public static List<EnumTypesDTO> GetMuscleGroups()
-        {
-            var muscleGroups = new List<EnumTypesDTO>();
-
-            foreach (MuscleGroup muscleGroup in Enum.GetValues(typeof(MuscleGroup)))
-            {
-                muscleGroups.Add(new EnumTypesDTO(muscleGroup.ToString(), (int)muscleGroup));
-            }
-
-            return muscleGroups;
-        }
-    }
-
 }

@@ -2,13 +2,14 @@
 using WOG_1._0._0.Models.Enums;
 using WOG_1._0._0.Repository;
 using WOG_1._0._0.Service.DTO;
+using WOG_1._0._0.Service.Helpers;
 
 namespace WOG_1._0._0.Service
 {
     public class WorkoutService(WorkoutRepository repository)
     {
 
-        private WorkoutRepository repository = repository;
+        private readonly WorkoutRepository repository = repository;
 
         public string GetString()
         {
@@ -25,16 +26,31 @@ namespace WOG_1._0._0.Service
             return repository.GetExercises();
         }
 
-        public List<EnumTypesDTO> GetEquipment()
+        internal List<List<EnumTypesDTO>> GetEnumTypes()
         {
-            return EquipmentHelper.GetEquipment();
+            return
+            [
+                EnumPackager.GetPackagedEnums<MuscleGroup>(),
+                EnumPackager.GetPackagedEnums<Equipment>()
+            ];
         }
 
-
-        public List<EnumTypesDTO> GetMuscleGroups()
+        internal string CreateWorkoutFromOrder(WorkoutOrder order)
         {
-            return MuscleGroupHelper.GetMuscleGroups();
-        }
+            //check if enums are valid
+            if (
+            EnumValidator.ValidateEnums(order.Equipment) ||
+            EnumValidator.ValidateEnums(order.MuscleGroups)
+                )
+            {
 
+            }
+
+
+
+
+
+            return "foo";
+        }
     }
 }

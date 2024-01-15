@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WOG_1._0._0.Models;
+using WOG_1._0._0.Models.Enums;
 using WOG_1._0._0.Service;
 using WOG_1._0._0.Service.DTO;
+using WOG_1._0._0.Service.Helpers;
 
 namespace WOG_1._0._0.Controllers
 {
@@ -18,19 +20,17 @@ namespace WOG_1._0._0.Controllers
             return service.GetExercises();
         }
 
-
-        [HttpGet("equipment")]
-        public List<EnumTypesDTO> GetEquipment()
+        [HttpGet("types")]
+        public List<List<EnumTypesDTO>> GetEnumTypes()
         {
-            var foo =  service.GetEquipment();
-            return foo;
+            return service.GetEnumTypes();
         }
 
-        [HttpGet("musclegroups")]
-        public List<EnumTypesDTO> GetMuscleGroups()
+        [HttpGet("create")]
+        public string Create([FromBody] WorkoutOrder order)
         {
-            return service.GetMuscleGroups();
-        }
 
+            return service.CreateWorkoutFromOrder(order);
+        }
     }
 }
