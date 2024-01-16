@@ -1,53 +1,42 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WOG_1._0._0.Models;
 using WOG_1._0._0.Service;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using WOG_1._0._0.Service.DTO;
 
 namespace WOG_1._0._0.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class WorkoutController : ControllerBase
+    public class WorkoutController(WorkoutService service) : ControllerBase
     {
 
-        private WorkoutService service;
+        private readonly WorkoutService service = service;
 
-        public WorkoutController(WorkoutService service)
-        {
-            this.service = service ?? throw new ArgumentNullException(nameof(service));
-        }
-
-
-        // GET: api/<ValuesController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<Exercise> GetExercises()
         {
-            return new string[] { "value1", "value2" };
+            return service.GetExercises();
         }
 
-        // GET api/<ValuesController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("types")]
+        public List<List<EnumTypesDTO>> GetEnumTypes()
         {
-            return "value";
+            return service.GetEnumTypes();
         }
 
-        // POST api/<ValuesController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpGet("create")]
+        public IActionResult Create([FromBody] WorkoutOrder order)
         {
-        }
+            var response = service.CreateWorkout(order);
 
-        // PUT api/<ValuesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<ValuesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            if (response.Success)
+            {
+                return Ok(response.Data);
+            }
+            else
+            {
+                return BadRequest(response.Error);
+            }
         }
     }
 }
