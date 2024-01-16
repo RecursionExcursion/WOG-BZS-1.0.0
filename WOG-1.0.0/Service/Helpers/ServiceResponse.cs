@@ -13,21 +13,12 @@
             Error = error;
         }
 
-        public static ServiceResponse<T> GenerateResponse(
-            bool isValid,
-            T? data = default,
-            string errorMsg = "Could not process request")
+        public static ServiceResponse<T> GenerateResponse(T? data = default,
+                                                          string errorMsg = "Could not process request"
+                                                         )
         {
-            if (isValid)
-            {
-                if (data != null)
-                {
-                    return ReturnSuccess(data);
-                }
-            }
-            return ReturnError(errorMsg);
+            return data == null ? ReturnError(errorMsg) : ReturnSuccess(data);
         }
-
 
         private static ServiceResponse<T> ReturnSuccess(T data)
         {

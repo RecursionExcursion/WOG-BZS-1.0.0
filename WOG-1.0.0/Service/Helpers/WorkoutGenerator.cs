@@ -1,14 +1,15 @@
-﻿using WOG_1._0._0.Models;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using WOG_1._0._0.Models;
 
 namespace WOG_1._0._0.Service.Helpers
 {
     public static class WorkoutGenerator
     {
-        public static Workout GenerateWorkout(WorkoutOrder order, List<Exercise> exercises)
+        public static Workout GenerateWorkout(WorkoutOrder order, List<Exercise> exercises,  out string errorResponse)
         {
             List<Exercise> filteredExercises = FilterExercises(order, exercises);
 
-            List<Exercise> exerciseList = CreateExerciseList(order, filteredExercises);
+            List<Exercise> exerciseList = CreateExerciseList(order, filteredExercises, out errorResponse);
 
             return new Workout()
             {
@@ -16,7 +17,8 @@ namespace WOG_1._0._0.Service.Helpers
                 Exercises = exerciseList,
                 RepeatExercies = order.RepeatExercises,
                 Equipment = order.Equipment,
-                MuscleGroups = order.MuscleGroups
+                MuscleGroups = order.MuscleGroups,
+                Difficulties = order.Difficulties
             };
 
         }
@@ -39,16 +41,19 @@ namespace WOG_1._0._0.Service.Helpers
         }
 
 
-        private static List<Exercise> CreateExerciseList(WorkoutOrder order, List<Exercise> filteredExercises)
+        private static List<Exercise> CreateExerciseList(WorkoutOrder order, List<Exercise> filteredExercises, out string errorResponse)
         {
+            errorResponse = string.Empty;
+            
             var rand = new Random();
             bool repeat = order.RepeatExercises;
             var exerciseList = new List<Exercise>();
 
             if (filteredExercises.Count < order.NumberOfExercises && !repeat)
             {
-                //TODO Will not be able to complete order
-                throw new Exception("Not enough exercises in db to complete order");
+                errorResponse = "Not enough exercises with specified parameters to complete order"+
+                    "\nConsider changing 'repeat' to true or loosening the parameters";
+                return [];
             }
 
             while (exerciseList.Count < order.NumberOfExercises)

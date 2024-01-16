@@ -32,13 +32,21 @@ namespace WOG_1._0._0.Service
 
         public ServiceResponse<Workout> CreateWorkout(WorkoutOrder order)
         {
-            if (!OrderValidator.IsValidOrder(order, out string errorResponse))
+            if (!OrderValidator.IsOrderValid(order, out string errorResponse))
             {
-                return ServiceResponse<Workout>.GenerateResponse(
-                        false, errorMsg: errorResponse);
+                return ServiceResponse<Workout>.GenerateResponse(errorMsg: errorResponse);
             };
-            return ServiceResponse<Workout>.GenerateResponse(
-                                true, data: WorkoutGenerator.GenerateWorkout(order, GetExercises()));
+
+            Workout workout = WorkoutGenerator.GenerateWorkout(order, GetExercises(), out errorResponse);
+
+            if (workout.Exercises.Count > 0)
+            {
+                return ServiceResponse<Workout>.GenerateResponse(data: workout);
+            }
+            else
+            {
+                return ServiceResponse<Workout>.GenerateResponse(errorMsg: errorResponse);
+            }
         }
     }
 }

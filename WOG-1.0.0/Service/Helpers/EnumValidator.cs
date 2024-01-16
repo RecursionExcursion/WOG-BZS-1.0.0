@@ -5,41 +5,15 @@ namespace WOG_1._0._0.Service.Helpers
 {
     public static class OrderValidator
     {
-        public static bool IsValidOrder(WorkoutOrder order, out string errorString)
+        private static readonly string invalidStatement = "has been referenced successfully but object format is invalid";
+
+        public static bool IsOrderValid(WorkoutOrder order, out string errorString)
         {
             StringBuilder errorStringBuilder = new StringBuilder();
 
-            if (order.Equipment.Count > 0)
-            {
-                if (!ValidateEnums(order.Equipment))
-                {
-                    errorStringBuilder.Append("Equipment is invalid");
-                }
-            }
-
-            if (order.MuscleGroups.Count > 0)
-            {
-                if (!ValidateEnums(order.MuscleGroups))
-                {
-                    if(errorStringBuilder.Length > 0)
-                    {
-                        errorStringBuilder.Append('\n');
-                    }
-                    errorStringBuilder.Append("MuscleGroups is invalid");
-                }
-            } 
-            
-            if (order.MuscleGroups.Count > 0)
-            {
-                if (!ValidateEnums(order.Difficulties))
-                {
-                    if(errorStringBuilder.Length > 0)
-                    {
-                        errorStringBuilder.Append('\n');
-                    }
-                    errorStringBuilder.Append("Difficulties is invalid");
-                }
-            }
+            ValidateEnumTypes(order.Equipment, errorStringBuilder);
+            ValidateEnumTypes(order.MuscleGroups, errorStringBuilder);
+            ValidateEnumTypes(order.Difficulties, errorStringBuilder);
 
             errorString = errorStringBuilder.ToString();
 
@@ -48,10 +22,27 @@ namespace WOG_1._0._0.Service.Helpers
                 return true;
             }
 
-            errorString += "\nPlease GET 'workout/types' for number to type mapping";
+            errorString += "\nPlease use GET 'workout/types' to refrence accepted types";
 
             return false;
         }
+
+
+        private static void ValidateEnumTypes<T>(List<T> enumTypes, StringBuilder errorStringBuilder) where T : Enum
+        {
+            if (enumTypes.Count > 0)
+            {
+                if (!ValidateEnums(enumTypes))
+                {
+                    if (errorStringBuilder.Length > 0)
+                    {
+                        errorStringBuilder.Append('\n');
+                    }
+                    errorStringBuilder.Append($"{typeof(T).Name} {invalidStatement}");
+                }
+            }
+        }
+
 
         private static bool ValidateEnums<T>(List<T> enums) where T : Enum
         {

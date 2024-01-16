@@ -14,11 +14,8 @@ namespace WOG_1._0._0.Repository
 
             string fileContents = File.ReadAllText(Path.Combine(dir, pathFromDir));
 
-
             List<Exercise> exercises = JsonSerializer.Deserialize<List<Exercise>>(fileContents) ??
                 throw new Exception("Could not deserialize exercies");
-
-            Console.WriteLine(Path.Combine(dir, pathFromDir));
 
             return exercises;
         }
