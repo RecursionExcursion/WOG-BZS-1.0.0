@@ -14,10 +14,10 @@ namespace WOG_1._0._0
 
             builder.Services.AddControllers()
                             .AddJsonOptions(options =>
-                            {
-                                options.JsonSerializerOptions
-                                       .Converters.Add(new JsonStringEnumConverter());
-                            });
+                           {
+                               options.JsonSerializerOptions
+                                   .Converters.Add(new JsonStringEnumConverter());
+                           });
             builder.Services.AddScoped<WorkoutService>();
             builder.Services.AddScoped<WorkoutRepository>();
 

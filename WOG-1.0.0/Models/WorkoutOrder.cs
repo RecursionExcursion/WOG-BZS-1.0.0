@@ -18,11 +18,9 @@ namespace WOG_1._0._0.Models
         [JsonPropertyName("repeatExercises")]
         public bool? RepeatExercises { get; set; }
 
-        [Required]
         [JsonPropertyName("equipment")]
         public List<Equipment> Equipment { get; set; } = new List<Equipment>();
 
-        [Required]
         [JsonPropertyName("muscleGroups")]
         public List<MuscleGroup> MuscleGroups { get; set; } = new List<MuscleGroup>();
     }

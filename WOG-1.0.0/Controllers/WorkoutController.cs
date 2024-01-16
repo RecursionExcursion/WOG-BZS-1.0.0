@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WOG_1._0._0.Models;
-using WOG_1._0._0.Models.Enums;
 using WOG_1._0._0.Service;
 using WOG_1._0._0.Service.DTO;
-using WOG_1._0._0.Service.Helpers;
 
 namespace WOG_1._0._0.Controllers
 {
@@ -27,10 +25,20 @@ namespace WOG_1._0._0.Controllers
         }
 
         [HttpGet("create")]
-        public string Create([FromBody] WorkoutOrder order)
+        public IActionResult Create([FromBody] WorkoutOrder order)
         {
+            var response = service.CreateWorkout(order);
 
-            return service.CreateWorkoutFromOrder(order);
+            if (response.Success)
+            {
+                return Ok(response.Data);
+            }
+            else
+            {
+                return BadRequest(response.Error);
+            }
+
+
         }
     }
 }
