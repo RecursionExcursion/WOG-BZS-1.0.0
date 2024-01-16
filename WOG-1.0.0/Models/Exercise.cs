@@ -6,7 +6,10 @@ namespace WOG_1._0._0.Models
     public class Exercise
     {
         [JsonPropertyName("name")]
-        public string Name { get; set; } = null!;
+        public string Name { get; set; } = null!; 
+        
+        [JsonPropertyName("difficulty")]
+        public Difficulty Difficulty { get; set; }
 
         [JsonPropertyName("equipment")]
         public Equipment Equipment { get; set; }

@@ -8,20 +8,23 @@ namespace WOG_1._0._0.Models
     {
         [Required]
         [JsonPropertyName("name")]
-        public string? Name { get; set; }
+        public string Name { get; set; } = String.Empty;
 
         [Required]
         [JsonPropertyName("numberOfExercises")]
-        public int? NumberOfExercises { get; set; }
+        public int NumberOfExercises { get; set; } = 0;
 
         [Required]
         [JsonPropertyName("repeatExercises")]
-        public bool? RepeatExercises { get; set; }
+        public bool RepeatExercises { get; set; } = true;
 
         [JsonPropertyName("equipment")]
-        public List<Equipment> Equipment { get; set; } = new List<Equipment>();
+        public List<Equipment> Equipment { get; set; } = [];
 
         [JsonPropertyName("muscleGroups")]
-        public List<MuscleGroup> MuscleGroups { get; set; } = new List<MuscleGroup>();
+        public List<MuscleGroup> MuscleGroups { get; set; } = []; 
+        
+        [JsonPropertyName("difficulty")]
+        public List<Difficulty> Difficulties { get; set; } = [];
     }
 }

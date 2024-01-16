@@ -37,8 +37,6 @@ namespace WOG_1._0._0.Controllers
             {
                 return BadRequest(response.Error);
             }
-
-
         }
     }
 }

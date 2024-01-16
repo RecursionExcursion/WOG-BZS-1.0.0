@@ -27,6 +27,18 @@ namespace WOG_1._0._0.Service.Helpers
                     }
                     errorStringBuilder.Append("MuscleGroups is invalid");
                 }
+            } 
+            
+            if (order.MuscleGroups.Count > 0)
+            {
+                if (!ValidateEnums(order.Difficulties))
+                {
+                    if(errorStringBuilder.Length > 0)
+                    {
+                        errorStringBuilder.Append('\n');
+                    }
+                    errorStringBuilder.Append("Difficulties is invalid");
+                }
             }
 
             errorString = errorStringBuilder.ToString();
@@ -35,6 +47,8 @@ namespace WOG_1._0._0.Service.Helpers
             {
                 return true;
             }
+
+            errorString += "\nPlease GET 'workout/types' for number to type mapping";
 
             return false;
         }

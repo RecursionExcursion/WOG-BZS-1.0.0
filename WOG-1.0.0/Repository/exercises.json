@@ -1,95 +1,111 @@
 [
     {
         "name": "Push Up",
+        "difficulty": 0,
         "equipment": 0,
-        "muscleGroups": [
-            0,
-            4
-        ],
+        "muscleGroups": [ 0, 4 ],
         "notes": null
     },
     {
         "name": "Body Squats",
+        "difficulty": 0,
         "equipment": 0,
-        "muscleGroups": [
-            3
-        ],
+        "muscleGroups": [ 3 ],
         "notes": null
     },
     {
         "name": "Sit Ups",
+        "difficulty": 0,
         "equipment": 0,
-        "muscleGroups": [
-            3
-        ],
+        "muscleGroups": [ 3 ],
+        "notes": null
+    },
+    {
+        "name": "Planks",
+        "difficulty": 0,
+        "equipment": 0,
+        "muscleGroups": [ 3 ],
         "notes": null
     },
 
 
     {
         "name": "Bench Press",
+        "difficulty": 0,
         "equipment": 1,
-        "muscleGroups": [
-            0,
-            4
-        ],
+        "muscleGroups": [ 0, 4 ],
         "notes": null
     },
     {
-        "name": "Squat",
+        "name": "Back Squat",
+        "difficulty": 0,
         "equipment": 1,
-        "muscleGroups": [
-            2
-        ],
+        "muscleGroups": [ 2 ],
         "notes": null
     },
     {
-        "name": "Rows",
+        "name": "Barbell Rows",
+        "difficulty": 0,
         "equipment": 1,
-        "muscleGroups": [
-            1,
-            5
-        ],
+        "muscleGroups": [ 1, 5 ],
         "notes": null
     },
     {
-        "name": "JERK",
+        "name": "Barbell Jerk",
+        "difficulty": 0,
         "equipment": 1,
-        "muscleGroups": [
-            2,
-            3,
-            0,
-            4
-        ],
+        "muscleGroups": [ 2, 3, 0, 4 ],
         "notes": null
     },
 
     {
         "name": "KB Swings",
+        "difficulty": 0,
         "equipment": 2,
-        "muscleGroups": [
-            2,
-            3
-        ],
+        "muscleGroups": [ 2, 3 ],
         "notes": null
     },
     {
         "name": "KB Snatches",
+        "difficulty": 1,
         "equipment": 2,
-        "muscleGroups": [
-            2,
-            3
-        ],
+        "muscleGroups": [ 2, 3 ],
+        "notes": null
+    },
+    {
+        "name": "Long Cycles",
+        "difficulty": 2,
+        "equipment": 2,
+        "muscleGroups": [ 0, 2, 3, 4, 5 ],
         "notes": null
     },
 
     {
         "name": "Pull Ups",
+        "difficulty": 0,
         "equipment": 3,
-        "muscleGroups": [
-            1,
-            5
-        ],
+        "muscleGroups": [ 1, 5 ],
         "notes": null
-    }
+    },
+    {
+        "name": "Leg Rasies",
+        "difficulty": 0,
+        "equipment": 3,
+        "muscleGroups": [ 3 ],
+        "notes": null
+    },
+    {
+        "name": "Front Levers",
+        "difficulty": 2,
+        "equipment": 3,
+        "muscleGroups": [ 3 ],
+        "notes": null
+    },
+    {
+        "name": "Muscle Ups",
+        "difficulty": 2,
+        "equipment": 3,
+        "muscleGroups": [ 0, 1, 4, 5 ],
+        "notes": null
+    },
 ]

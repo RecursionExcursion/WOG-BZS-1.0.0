@@ -5,28 +5,15 @@ namespace WOG_1._0._0.Models
 {
     public class Workout
     {
-        [Required] 
         public string Name { get; set; } = null!;
-
-
-        [EnumDataType(typeof(Equipment))]
-        public List<Equipment> Equipment { get; set; } = new List<Equipment>();
-
-
-        [EnumDataType(typeof(MuscleGroup))]
-        public List<MuscleGroup> MuscleGroups { get; set; } = new List<MuscleGroup>();
-
-
-        public List<Exercise> Exercises { get; set; } = new List<Exercise>();
-
-
-        [Required]
         public int NumberOfExercises { get; set; } = 0;
-
-
-        [Required]
         public bool RepeatExercies { get; set;  } = false;
 
+        public List<Equipment> Equipment { get; set; } = [];
+        public List<MuscleGroup> MuscleGroups { get; set; } = [];
+        public List<Difficulty> Difficulties { get; set; } = [];
+
+        public List<Exercise> Exercises { get; set; } = [];
 
         public string? Description { get; set; }
     }

@@ -1,5 +1,4 @@
-﻿using System.Text;
-using WOG_1._0._0.Models;
+﻿using WOG_1._0._0.Models;
 using WOG_1._0._0.Models.Enums;
 using WOG_1._0._0.Repository;
 using WOG_1._0._0.Service.DTO;
@@ -26,7 +25,8 @@ namespace WOG_1._0._0.Service
             return
             [
                 EnumPackager.GetPackagedEnums<MuscleGroup>(),
-                EnumPackager.GetPackagedEnums<Equipment>()
+                EnumPackager.GetPackagedEnums<Equipment>(),
+                EnumPackager.GetPackagedEnums<Difficulty>()
             ];
         }
 
@@ -37,17 +37,8 @@ namespace WOG_1._0._0.Service
                 return ServiceResponse<Workout>.GenerateResponse(
                         false, errorMsg: errorResponse);
             };
-
             return ServiceResponse<Workout>.GenerateResponse(
-                                true, data: CreateWorkoutFromOrder(order));
-        }
-
-        private Workout CreateWorkoutFromOrder(WorkoutOrder order)
-        {
-
-
-
-            return new Workout();
+                                true, data: WorkoutGenerator.GenerateWorkout(order, GetExercises()));
         }
     }
 }
