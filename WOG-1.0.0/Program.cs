@@ -21,6 +21,17 @@ namespace WOG_1._0._0
             builder.Services.AddScoped<WorkoutService>();
             builder.Services.AddScoped<WorkoutRepository>();
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowReact",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:3000") // Add the allowed origin(s)
+                               .AllowAnyHeader()
+                               .AllowAnyMethod();
+                    });
+            });
+
 
             var app = builder.Build();
 
@@ -28,6 +39,8 @@ namespace WOG_1._0._0
 
             app.UseHttpsRedirection();
             app.UseAuthorization();
+
+            app.UseCors("AllowReact");
 
             app.MapControllers();
 

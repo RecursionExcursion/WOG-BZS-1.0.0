@@ -9,7 +9,6 @@ namespace WOG_1._0._0.Controllers
     [ApiController]
     public class WorkoutController(WorkoutService service) : ControllerBase
     {
-
         private readonly WorkoutService service = service;
 
         [HttpGet]
@@ -24,7 +23,7 @@ namespace WOG_1._0._0.Controllers
             return service.GetEnumTypes();
         }
 
-        [HttpGet("create")]
+        [HttpPut]
         public IActionResult Create([FromBody] WorkoutOrder order)
         {
             var response = service.CreateWorkout(order);
